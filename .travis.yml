@@ -7,9 +7,7 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
   - openssl aes-256-cbc -K $encrypted_b7556ab9b144_key -iv $encrypted_b7556ab9b144_iv -in multi-k8s-405110-154c3e56e9a6.json.enc -out service-account.json -d
-  # - curl https://sdk.cloud.google.com | bash > /dev/null;
-  - curl https://sdk.cloud.google.com
-  - bash ./google-cloud-sdk/install.sh
+  - curl https://sdk.cloud.google.com | bash;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-servce-account --key-file service-account.json
